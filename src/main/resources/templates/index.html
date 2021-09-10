@@ -13,6 +13,17 @@
 <div id="app">
   <div class="nav-bar"></div>
 
+  <!-- modal -->
+  <div v-if="displaymodal == true" class="black-bg">
+    <div class="white-bg">
+      <h4>상세페이지</h4>
+      <p>상세페이지내용임</p>
+    </div>
+    <div @click="displaymodal = false">모달닫기</div>
+  </div>
+
+  <div @click="displaymodal = true">모달열기</div>
+
 <!--  <div class="cart">Cart({{ cart }})</div>-->
   <div class="cart">Cart({{ cart.length }})</div>
   <product-display

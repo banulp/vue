@@ -4,6 +4,7 @@ const app = Vue.createApp({
             // cart: 0,
             cart: [],
             premium: true,
+            displaymodal: true,
             details: ['details1','details2','details3']
         }
     },
