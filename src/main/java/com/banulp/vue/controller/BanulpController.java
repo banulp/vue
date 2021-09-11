@@ -7,7 +7,7 @@ import org.springframework.web.servlet.ModelAndView;
 @Controller
 public class BanulpController {
 
-    @GetMapping("/list")
+    @GetMapping("/")
     ModelAndView list(ModelAndView m){
         m.setViewName("index");
         return m;

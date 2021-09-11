@@ -31,54 +31,30 @@ const app = Vue.createApp({
                 params: {
                     id: 12345
                 }
-            })
-            .then(response => {
+            }).then(response => {
                 console.log(response);
                 this.userget = response.data;
                 console.log(response.data);
-            })
-            .catch(error => {
+            }).catch(error => {
                 console.log(error);
-            })
-            .then(function () {
+            }).then(function () {
                 // always executed ? 이거 어떻게 하더라
             });
         },
         removeById(id) {
-            const index = this.cart.indexOf(id)
+            const index = this.cart.indexOf(id);
             if (index > -1) {
                 this.cart.splice(index, 1)
             }
+            axios.post('/user', {
+                firstName: 'Rainbow',
+                lastName: 'Clover'
+            }).then(response => {
+                console.log(response);
+                this.userget = response.data;
+            }).catch(error => {
+                console.log(error);
+            });
         }
     }
 })
-//
-// import Vue from 'vue';
-// const axios = require('axios');
-//
-// alert(1);
-// axios.get('/user', {
-//     params: {
-//         id: 12345
-//     }
-// })
-//     .then(function (response) {
-//         console.log(response);
-//     })
-//     .catch(function (error) {
-//         console.log(error);
-//     })
-//     .then(function () {
-//         // always executed
-//     });
-// alert(2);
-// // axios.post('/user', {
-// //   firstName: 'Fred',
-// //   lastName: 'Flintstone'
-// // })
-// // .then(function (response) {
-// //   console.log(response);
-// // })
-// // .catch(function (error) {
-// //   console.log(error);
-// // });
