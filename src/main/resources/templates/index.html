@@ -13,16 +13,22 @@
 <div id="app">
   <div class="nav-bar"></div>
 
-  <!-- modal -->
+  <!-- s - modal -->
+  <div @click="displaymodal = true">모달열기</div>
   <div v-if="displaymodal == true" class="black-bg">
     <div class="white-bg">
       <h4>상세페이지</h4>
       <p>상세페이지내용임</p>
+      <div @click="displaymodal = false">모달닫기</div>
     </div>
-    <div @click="displaymodal = false">모달닫기</div>
   </div>
+  <!-- e - modal -->
 
-  <div @click="displaymodal = true">모달열기</div>
+  <!-- s - gif-box -->
+  <div>
+    <gif-box v-bind:gif="gif"></gif-box>
+  </div>
+  <!-- e - gif-box -->
 
 <!--  <div class="cart">Cart({{ cart }})</div>-->
   <div class="cart">Cart({{ cart.length }})</div>
@@ -42,6 +48,7 @@
 <script src="/components/ProductDetails.js"></script>
 <script src="/components/ReviewForm.js"></script>
 <script src="/components/ReviewList.js"></script>
+<script src="/components/GifBox.js"></script>
 
 
 <!-- Mount App -->
