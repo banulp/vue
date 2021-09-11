@@ -3,6 +3,7 @@ const app = Vue.createApp({
         return {
             // cart: 0,
             cart: []
+            ,userget: 'default'
             ,premium: true
             ,displaymodal: true
             ,details: ['details1','details2','details3']
@@ -25,7 +26,23 @@ const app = Vue.createApp({
     },
     methods: {
         updateCart(id) {
-            this.cart.push(id)
+            this.cart.push(id);
+            axios.get('/user', {
+                params: {
+                    id: 12345
+                }
+            })
+            .then(response => {
+                console.log(response);
+                this.userget = response.data;
+                console.log(response.data);
+            })
+            .catch(error => {
+                console.log(error);
+            })
+            .then(function () {
+                // always executed ? 이거 어떻게 하더라
+            });
         },
         removeById(id) {
             const index = this.cart.indexOf(id)
@@ -35,3 +52,33 @@ const app = Vue.createApp({
         }
     }
 })
+//
+// import Vue from 'vue';
+// const axios = require('axios');
+//
+// alert(1);
+// axios.get('/user', {
+//     params: {
+//         id: 12345
+//     }
+// })
+//     .then(function (response) {
+//         console.log(response);
+//     })
+//     .catch(function (error) {
+//         console.log(error);
+//     })
+//     .then(function () {
+//         // always executed
+//     });
+// alert(2);
+// // axios.post('/user', {
+// //   firstName: 'Fred',
+// //   lastName: 'Flintstone'
+// // })
+// // .then(function (response) {
+// //   console.log(response);
+// // })
+// // .catch(function (error) {
+// //   console.log(error);
+// // });
