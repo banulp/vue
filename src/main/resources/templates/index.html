@@ -8,54 +8,39 @@
   <!-- Import Vue.js -->
   <script src="https://unpkg.com/vue@3.0.11/dist/vue.global.js"></script>
   <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <script src="https://unpkg.com/vue-router@4.0.5/dist/vue-router.global.js"></script>
+
 </head>
 <body>
 
 <div id="app">
   <div class="nav-bar"></div>
+  <h1>{{ userget }}</h1>
 
-  <!-- s - modal -->
-  <div @click="displaymodal = true">모달열기</div>
-  <div v-if="displaymodal == true" class="black-bg">
-    <div class="white-bg">
-      <h4>상세페이지</h4>
-      <p>상세페이지내용임</p>
-      <div @click="displaymodal = false">모달닫기</div>
-    </div>
-  </div>
-  <!-- e - modal -->
+  <p>
+    <!-- use the router-link component for navigation. -->
+    <!-- specify the link by passing the `to` prop. -->
+    <!-- `<router-link>` will render an `<a>` tag with the correct `href` attribute -->
+    <router-link to="/">Go to Home</router-link>
+    <router-link to="/about">Go to About</router-link>
+  </p>
+  <!-- route outlet -->
+  <!-- component matched by the route will render here -->
+  <router-view></router-view>
 
-  <!-- s - gif-box -->
-  <div>
-    <gif-box v-bind:gif="gif"></gif-box>
-  </div>
-  <!-- e - gif-box -->
 
-<!--  <div class="cart">Cart({{ cart }})</div>-->
-  <div class="cart">Cart({{ cart.length }})</div>
-  <div class="cart">usergetResult : ({{ userget }})</div>
-  <product-display
-          :premium="premium"
-          @add-to-cart="updateCart"
-          @remove-from-cart="removeById">
-  </product-display>
-  <product-details :details="details"></product-details>
 </div>
 
 <!-- Import App -->
+<script th:src="@{/js/router.js}" ></script>
 <script th:src="@{/js/main.js}" ></script>
 
 <!-- Import Components -->
-<script src="/components/ProductDisplay.js"></script>
-<script src="/components/ProductDetails.js"></script>
-<script src="/components/ReviewForm.js"></script>
-<script src="/components/ReviewList.js"></script>
-<script src="/components/GifBox.js"></script>
-
 
 <!-- Mount App -->
 <script>
-  const mountedApp = app.mount('#app')
+  app.use(router)
+  app.mount('#app')
 </script>
 </body>
 </html>

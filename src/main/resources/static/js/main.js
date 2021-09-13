@@ -1,32 +1,12 @@
 const app = Vue.createApp({
+    // routes: router,
     data() {
         return {
-            // cart: 0,
-            cart: []
-            ,userget: 'default'
-            ,premium: true
-            ,displaymodal: true
-            ,details: ['details1','details2','details3']
-            // ,apiUrl: 'http://api.giphy.com/v1/gifs'
-            // ,apiKey: 'XKLtBQJNpJuak0ZX68u6Pl6XvuVzgmW7'
-            ,gif: {
-                url: 'http://urlgif'
-                , images: {
-                    original : {
-                        url : '/assets/images/rumi.png'
-                    }
-                }
-                , user: {
-                    profile_url: 'http://profile_url'
-                    , avatar_url: 'http://avatar_url'
-                    , display_name: 'BanulpGifUserName'
-                }
-            }
+            userget: 'default'
         }
     },
     methods: {
-        updateCart(id) {
-            this.cart.push(id);
+        getUser(id) {
             axios.get('/user', {
                 params: {
                     id: 12345
@@ -41,11 +21,7 @@ const app = Vue.createApp({
                 // always executed ? 이거 어떻게 하더라
             });
         },
-        removeById(id) {
-            const index = this.cart.indexOf(id);
-            if (index > -1) {
-                this.cart.splice(index, 1)
-            }
+        postUser() {
             axios.post('/user', {
                 firstName: 'Rainbow',
                 lastName: 'Clover'
