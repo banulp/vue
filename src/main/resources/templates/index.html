@@ -21,8 +21,11 @@
     <!-- use the router-link component for navigation. -->
     <!-- specify the link by passing the `to` prop. -->
     <!-- `<router-link>` will render an `<a>` tag with the correct `href` attribute -->
-    <router-link to="/">Go to Home</router-link>
-    <router-link to="/about">Go to About</router-link>
+    <router-link to="/">Go to Home</router-link> //
+    <router-link to="/about">Go to About</router-link> //
+    <router-link :to="{ name: 'Users', params: { userId: '123' }}">User</router-link>
+
+
   </p>
   <!-- route outlet -->
   <!-- component matched by the route will render here -->
@@ -31,11 +34,12 @@
 
 </div>
 
+<!-- Import Components -->
+<script src="/components/user/user.js"></script>
+
 <!-- Import App -->
 <script th:src="@{/js/router.js}" ></script>
 <script th:src="@{/js/main.js}" ></script>
-
-<!-- Import Components -->
 
 <!-- Mount App -->
 <script>
